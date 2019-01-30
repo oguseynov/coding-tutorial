@@ -97,13 +97,13 @@ fun maxOf(a: Int, b: Int) = if (a > b) a else b
 fun minOf(a: Int,b: Int,c: Int) =
     if (c < b && c < a) c else
     if (b < c && b < a) b else
-    if (a < c && a < b) a else println("Error1")
+    if (a < c && a < b) a else println("Error")
 
 fun minOf(a: Double, b: Double): Any {
     if (a < b) return a
     return Unit
 }
-
+git
 fun describe(obj: Any): String =
         when (obj) {
             1 -> "One"
