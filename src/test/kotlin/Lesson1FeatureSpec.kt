@@ -97,7 +97,7 @@ fun maxOf(a: Int, b: Int) = if (a > b) a else b
 fun minOf(a: Int,b: Int,c: Int) =
     if (c < b && c < a) c else
     if (b < c && b < a) b else
-    if (a < c && a < b) a else println("Error")
+    if (a < c && a < b) a else println("Error1")
 
 fun minOf(a: Double, b: Double): Any {
     if (a < b) return a
