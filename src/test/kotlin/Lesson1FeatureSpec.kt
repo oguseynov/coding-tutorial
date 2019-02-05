@@ -70,8 +70,8 @@ class BasicsFeatureSpec : FeatureSpec({
     // Write minOff function
 
     feature("when expression") {
-        describe(1) shouldBe "One"
-        describe("hello") shouldBe "Unknown"
+        //describe(1) shouldBe "One"
+        //describe("hello") shouldBe "Unknown"
         // Add other checks
     }
 
@@ -82,7 +82,7 @@ class BasicsFeatureSpec : FeatureSpec({
             fruits.count() shouldBe 4
             fruits shouldContain "Apple"
 
-            count(fruits) shouldBe 4
+            //count(fruits) shouldBe 4
         }
     }
 })
@@ -94,16 +94,22 @@ fun sum1(a: Int, b: Int): Int {
 fun sum2(a: Int, b: Int) = a + b
 
 fun maxOf(a: Int, b: Int) = if (a > b) a else b
-fun minOf(a: Int,b: Int,c: Int) =
-    if (c < b && c < a) c else
-    if (b < c && b < a) b else
-    if (a < c && a < b) a else println("Error")
+
+fun minOf(a:Int, b: Int, c: Int) {
+
+    fun minOf(list: List<Int> ) : Int{
+        var min: Int = list[0]
+        for (i in list){
+            if (i<min) min=i
+        }
+        return min
+    }
 
 fun minOf(a: Double, b: Double): Any {
     if (a < b) return a
     return Unit
 }
-git
+
 fun describe(obj: Any): String =
         when (obj) {
             1 -> "One"
@@ -120,3 +126,18 @@ fun count(list: ArrayList<String>): Int {
     }
     return counter
 }
+    fun main(args: Array<String>) {
+
+        var fruits = listOf("Apple", "Orange", "Grapes", "kiwi")
+        for (n in fruits) {
+            print(n)
+            var fruits: Map<String, Int> = mapOf("Apple" to 57, "Orange" to 27, "Grapes" to 32, "kiwi" to 20)
+
+            println(fruits["Apple"])   // 57
+            for (fruit in fruits) println("${fruit.key} - ${fruit.value}")
+        }
+
+        println(fruits)
+    }
+}
+
