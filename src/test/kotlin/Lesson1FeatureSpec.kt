@@ -1,7 +1,7 @@
-import io.kotlintest.matchers.collections.shouldContain
-import io.kotlintest.matchers.numerics.shouldBeLessThan
-import io.kotlintest.shouldBe
-import io.kotlintest.specs.FeatureSpec
+import io.kotest.core.spec.style.FeatureSpec
+import io.kotest.matchers.collections.shouldContain
+import io.kotest.matchers.comparables.shouldBeLessThan
+import io.kotest.matchers.shouldBe
 
 class BasicsFeatureSpec : FeatureSpec({
     feature("functions") {

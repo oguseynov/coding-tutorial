@@ -4,8 +4,8 @@ import com.github.kittinunf.fuel.httpDelete
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.fuel.httpPost
 import com.github.kittinunf.fuel.moshi.responseObject
-import io.kotlintest.shouldBe
-import io.kotlintest.specs.FeatureSpec
+import io.kotest.core.spec.style.FeatureSpec
+import io.kotest.matchers.shouldBe
 import models.Post
 
 const val POSTS_COUNT = 100

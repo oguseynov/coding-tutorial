@@ -1,7 +1,7 @@
-import io.kotlintest.matchers.collections.shouldContain
-import io.kotlintest.matchers.numerics.shouldBeLessThan
-import io.kotlintest.shouldBe
-import io.kotlintest.specs.DescribeSpec
+import io.kotest.core.spec.style.DescribeSpec
+import io.kotest.matchers.collections.shouldContain
+import io.kotest.matchers.comparables.shouldBeLessThan
+import io.kotest.matchers.shouldBe
 
 class BasicsDescribeSpec : DescribeSpec({
     describe("Checks on Kotlin basics implementations") {

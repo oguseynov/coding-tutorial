@@ -1,15 +1,9 @@
-import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
-import org.gradle.api.tasks.testing.logging.TestLogEvent
-import org.gradle.api.tasks.testing.logging.TestLogEvent.FAILED
-import org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED
-import org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED
-import org.gradle.api.tasks.testing.logging.TestLogEvent.STANDARD_ERROR
-import org.gradle.api.tasks.testing.logging.TestLogEvent.STANDARD_OUT
+import org.gradle.api.tasks.testing.logging.TestLogEvent.*
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jmailen.gradle.kotlinter.support.ReporterType
 
-group = "kz.btsdigtal.testingschool"
+group = "com.oguseynov.testingschool"
 
 repositories {
     mavenCentral()
@@ -17,8 +11,8 @@ repositories {
 }
 
 plugins {
-    kotlin("jvm") version "1.3.0"
-    id("org.jmailen.kotlinter") version "1.18.0"
+    kotlin("jvm") version "1.3.70"
+    id("org.jmailen.kotlinter") version "2.3.2"
 }
 
 group = "kz.btsd"
@@ -48,27 +42,23 @@ tasks {
     }
 }
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
-    val kotlintestVersion = "3.1.10"
-    val javafakerVersion = "0.16"
+    val kotestVersion = "4.0.1"
+    val javafakerVersion = "1.0.2"
     val slf4jSimpleVersion = "1.7.25"
-    val fuelVersion = "1.16.0"
+    val fuelVersion = "2.2.1"
 
-    compile(kotlin("stdlib-jdk8"))
-    testCompile("io.kotlintest:kotlintest-runner-junit5:$kotlintestVersion")
-    testCompile("com.github.javafaker:javafaker:$javafakerVersion")
-    testCompile("org.slf4j:slf4j-simple:$slf4jSimpleVersion")
-    testCompile("com.github.kittinunf.fuel:fuel:$fuelVersion")
-    testCompile("com.github.kittinunf.fuel:fuel-moshi:$fuelVersion")
+    implementation(kotlin("stdlib-jdk8"))
+    testImplementation("io.kotest:kotest-runner-junit5-jvm:$kotestVersion")
+    testImplementation("io.kotest:kotest-assertions-core-jvm:$kotestVersion")
+    testImplementation("com.github.javafaker:javafaker:$javafakerVersion")
+    testImplementation("org.slf4j:slf4j-simple:$slf4jSimpleVersion")
+    testImplementation("com.github.kittinunf.fuel:fuel:$fuelVersion")
+    testImplementation("com.github.kittinunf.fuel:fuel-moshi:$fuelVersion")
 }
 
 kotlinter {
     ignoreFailures = false
     indentSize = 4
-    continuationIndentSize = 4
     reporters = arrayOf(ReporterType.checkstyle.name, ReporterType.plain.name, ReporterType.html.name)
 }
